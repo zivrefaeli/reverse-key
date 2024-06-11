@@ -1,0 +1,21 @@
+services:
+  fluentd:
+    image: fluentd:latest
+    user: root
+    environment:
+      - REVERSED_KEY=level
+    volumes:
+      - ./fluentd:/fluentd
+      - logs-volume:/var/log
+
+  api:
+    build: .
+    ports:
+      - 8000:8000
+    environment:
+      - LOG_FILE_PATH=/var/log/app.log
+    volumes:
+      - logs-volume:/var/log
+
+volumes:
+  logs-volume:
