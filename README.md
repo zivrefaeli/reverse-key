@@ -4,7 +4,7 @@ Following **fluentd** SDK at https://docs.fluentd.org/plugin-development
 
 ## Custom `filter` Plugin 🔀
 
-`reverse-key` is a plugin that takes a `record` and reverses one of its values.
+`reverse_key` is a filter plugin that takes a `record` and reverses one of its values.
 
 To configure the plugin at `fluent.conf`:
 
@@ -27,7 +27,7 @@ For example,
 {"datetime":"2024-06-01T22:32:14.774291","level":"RORRE","file":{"name":"main.py","line":44},"message":"Hello Error log","content":[]}
 ```
 
-## Usage
+## Usage 👷‍♂️
 
 To add the plugin to fluentd, add the file `filter_reverse_key.rb` to `/fluentd/plugins` folder
 
