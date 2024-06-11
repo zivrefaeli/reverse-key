@@ -10,11 +10,10 @@ module Fluent::Plugin
     def filter(tag, time, record)
       begin
         record[@key] = record[@key].reverse
+        return record
       rescue
         log.error('failed to reverse %s at %s' % [@key, record])
         return nil
-      else
-        return record
       end
     end
   end
