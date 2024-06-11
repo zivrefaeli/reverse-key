@@ -1,3 +1,4 @@
+import os
 import logging
 from datetime import datetime
 from typing import Any
@@ -35,6 +36,6 @@ class JsonFormatter(logging.Formatter):
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
-handler = logging.FileHandler("app.log")
+handler = logging.FileHandler(os.environ.get("LOG_FILE_PATH", "app.log"))
 handler.setFormatter(JsonFormatter())
 logger.addHandler(handler)
