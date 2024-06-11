@@ -1,6 +1,14 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from logger import logger
 
 app = FastAPI()
+
+
+@app.middleware("http")
+async def logs_middleware(request: Request, call_next):
+    response = await call_next(request)
+    logger.debug(f"{request.method} {request.url} {response.status_code}")
+    return response
 
 
 @app.get("/")
