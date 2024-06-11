@@ -7,10 +7,6 @@ module Fluent::Plugin
     desc 'The key to reverse'
     config_param :key, :string, default: 'message'
 
-    def configure(conf)
-      super
-    end
-
     def filter(tag, time, record)
       begin
         record[@key] = record[@key].reverse

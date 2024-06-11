@@ -2,6 +2,8 @@ services:
   fluentd:
     image: fluentd:latest
     user: root
+    environment:
+      - REVERSED_KEY=level
     volumes:
       - ./fluentd:/fluentd
       - logs-volume:/var/log
